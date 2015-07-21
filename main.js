@@ -14,7 +14,6 @@ function displayCards(){
   }
 }
 
-
 // renames existing button
 function showReset() {
   var button = document.getElementById("cards");
@@ -25,6 +24,14 @@ function showDeal() {
   var button = document.getElementById("cards");
   button.innerHTML = "Deal!";
 
+}
+
+function showReDeal(){
+  var button = document.createElement("button");
+  button.innerHTML = "Re-deal!";
+  button.id = "re-deal";
+  var buttonContainer = document.getElementById("buttons");
+  buttonContainer.appendChild(button);
 }
 
 // Creates a deck of 52 cards
@@ -54,10 +61,10 @@ function newDeck(){
         current.suit = suits[i];
          current.card = ranks[j].card;
           deck.push(current);
-    };
-  };
+    }
+  }
   return deck;
-  console.log(deck);
+  // console.log(deck);
 }
 
 
@@ -74,28 +81,39 @@ function shuffleCards(cardDeck){
     return cardDeck;
   }
 
-// grab div where cards are displayed
-var showCards = document.getElementById("cards");
+
+
+
+
 // set boolean for button toggle (DEAL/RESET)
 var toggle = true;
 
-// execute programm
+// execute program
+var showCards = document.getElementById("cards");
 showCards.onclick = function(){
+  var cardContainer = document.getElementById('container');
   if (toggle){
-    var cardContainer = document.getElementById('container');
     cardContainer.innerHTML = "";
     displayCards();
     showReset();
+    showReDeal();
+    var reDeal = document.getElementById("re-deal");
+    reDeal.onclick = function() {
+        cardContainer.innerHTML = "";
+        displayCards();
+     };
     toggle = false;
   }
   else {
-    var cardContainer = document.getElementById('container');
     cardContainer.innerHTML = "";
     toggle = true;
     showDeal();
+    reDeal.remove();
   }
 
 };
+
+
 
 
 

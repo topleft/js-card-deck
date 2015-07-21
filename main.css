@@ -27,6 +27,21 @@ button:hover {
   border: 2px black solid
 }
 
+#buttons {
+  margin: 2em 0;
+  width: 100%;
+  text-align: center;
+
+
+}
+
+#buttons button {
+  display: inline-block;
+  margin: 0 auto;
+
+}
+
+
 
 
 
