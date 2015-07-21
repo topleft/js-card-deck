@@ -1,5 +1,5 @@
 
-
+//appends DOM with images of whole deck
 function displayCards(){
   var deck = newDeck();
   var shuffledCards = shuffleCards(deck);
@@ -14,11 +14,13 @@ function displayCards(){
   }
 }
 
+
+// renames existing button
 function showReset() {
   var button = document.getElementById("cards");
   button.innerHTML = "Reset";
 }
-
+// bring back original button
 function showDeal() {
   var button = document.getElementById("cards");
   button.innerHTML = "Deal!";
@@ -72,24 +74,26 @@ function shuffleCards(cardDeck){
     return cardDeck;
   }
 
-  var showCards = document.getElementById("cards");
+// grab div where cards are displayed
+var showCards = document.getElementById("cards");
+// set boolean for button toggle (DEAL/RESET)
+var toggle = true;
 
-  var toggle = true;
-  showCards.onclick = function(){
-    if (toggle){
-      var cardContainer = document.getElementById('container');
-      cardContainer.innerHTML = "";
-      displayCards();
-      showReset();
-      toggle = false;
-    }
-    else {
-      var cardContainer = document.getElementById('container');
-      cardContainer.innerHTML = "";
-      toggle = true;
-      showDeal();
-    }
-
+// execute programm
+showCards.onclick = function(){
+  if (toggle){
+    var cardContainer = document.getElementById('container');
+    cardContainer.innerHTML = "";
+    displayCards();
+    showReset();
+    toggle = false;
+  }
+  else {
+    var cardContainer = document.getElementById('container');
+    cardContainer.innerHTML = "";
+    toggle = true;
+    showDeal();
+  }
 
 };
 
