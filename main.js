@@ -82,9 +82,6 @@ function shuffleCards(cardDeck){
   }
 
 
-
-
-
 // set boolean for button toggle (DEAL/RESET)
 var toggle = true;
 
@@ -105,10 +102,12 @@ showCards.onclick = function(){
     toggle = false;
   }
   else {
+    var reDeal = document.getElementById("re-deal");
     cardContainer.innerHTML = "";
-    toggle = true;
     showDeal();
+    toggle = true;
     reDeal.remove();
+
   }
 
 };
